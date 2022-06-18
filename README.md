@@ -3,7 +3,7 @@ Free MLOps course from DataTalks.Club
 
 
 
-![MLOPS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/images/banner_mlops-zoomcamp.png)
+![MLOPS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/images/banner.png)
 
 
 
@@ -49,7 +49,7 @@ The best way to get support is to use [DataTalks.Club's Slack](https://datatalks
 
 To make discussions in Slack more organized:
 
-* Follow [these recommendations](asking-questions.md) when asking for help
+* Follow [these recommendations](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/asking-questions.md) when asking for help
 * Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
 
 ## Syllabus
@@ -69,7 +69,7 @@ This is a draft and will change.
 
 [More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/01-intro)
 
-### [Module 2: Experiment tracking and model management]([02-experiment-tracking](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking))
+### [Module 2: Experiment tracking and model management](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking)
 
 * Experiment tracking intro
 * Getting started with MLflow
@@ -82,7 +82,7 @@ This is a draft and will change.
 [More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking)
 
 
-### [Module 3: Orchestration and ML Pipelines]([03-orchestration](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration))
+### [Module 3: Orchestration and ML Pipelines](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration)
 
 * Workflow orchestration
 * Prefect 2.0
@@ -93,7 +93,7 @@ This is a draft and will change.
 [More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration)
 
 
-### [Module 4: Model Deployment][04-deployment](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
+### [Module 4: Model Deployment](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
 
 * Three ways of model deployment: Online (web and streaming) and offline (batch)
 * Web service: model deployment with Frask
