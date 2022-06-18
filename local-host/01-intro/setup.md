@@ -1,7 +1,7 @@
 # ⚙ MacOS Apple Silicon | Environment Setup
 ---
 
-## Anaconda
+## Anaconda:
 
 **Download and install the Anaconda distribution.**
 1. Go to the [Anaconda product distribution page](https://www.anaconda.com/products/distribution)
@@ -51,7 +51,8 @@
  
 13. Install others packages that are require.
 
-## Docker
+
+## Docker:
 
 For the `Docker` and `Docker-compose` in Apple Silicon architecture come together in the `Docker Desktop`. So we can download only one time.
 Click &#8594; [Docker & Docker-compose](https://www.docker.com/products/docker-desktop/) and then follow the instructions to install it.
