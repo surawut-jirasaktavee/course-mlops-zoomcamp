@@ -67,7 +67,7 @@ This is a draft and will change.
 * Environment preparation
 * Homework
 
-[More details]([01-intro](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/01-intro))
+[More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/01-intro)
 
 ### [Module 2: Experiment tracking and model management]([02-experiment-tracking](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking))
 
@@ -79,7 +79,7 @@ This is a draft and will change.
 * MLflow in practice
 * Homework
 
-[More details]([02-experiment-tracking](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking))
+[More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking)
 
 
 ### [Module 3: Orchestration and ML Pipelines]([03-orchestration](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration))
@@ -90,10 +90,10 @@ This is a draft and will change.
 * Deployment of Prefect flow
 * Homework
 
-[More details]([03-orchestration](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration))
+[More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration)
 
 
-### [Module 4: Model Deployment]([04-deployment](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment))
+### [Module 4: Model Deployment][04-deployment](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
 
 * Three ways of model deployment: Online (web and streaming) and offline (batch)
 * Web service: model deployment with Frask
@@ -101,7 +101,7 @@ This is a draft and will change.
 * Batch: scoring data offline
 * Homework
 
-[More details]([04-deployment](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment))
+[More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
 
 ### Module 5: Model Monitoring
 
