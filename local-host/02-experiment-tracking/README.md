@@ -1,11 +1,13 @@
 # MLOps	Zoomcamp: Module2 Notes
 ---
 
-`**mlflow** machine learning life cycle`  
+**MLflow** `machine learning life cycle`  
 
 ![MLFLOW](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/images/mlflow.jpeg)
 
 ![MLFLOW-Sevice](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/images/mlflow_cover.png)
+
+## Key takeaways from module-2
 
 - [x] [Experiment tracking intro](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/notes/experiment_tracking.md)
 - [x] [Getting start with MLflow](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/notes/getting_start_with_mlflow.md)
