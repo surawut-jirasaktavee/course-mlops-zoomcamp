@@ -1,0 +1,5 @@
+# MLOps Zoomcamp: Module 1 Notes
+
+- [x] [Intro to MLOps](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/01-Intro/01-intro.md)
+- [x] [Environment Setup](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/01-Intro/setup.md)
+- [x] [MLOps Maturity Models Summarized](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/01-Intro/mlops_maturity.md)

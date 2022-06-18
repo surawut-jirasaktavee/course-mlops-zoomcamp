@@ -1,0 +1,13 @@
+## 📑MLOps Maturity Model
+
+Reference: [MLOps Maturity Model: Microsoft Docs](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mlops/mlops-maturity-model)
+
+Reference: [MLOps Maturity Model: Google Docs](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+
+|Level|Description|Highlights|Technology|Propose
+|---|---|---|---|---|
+|0️⃣|No Automation |<ul><li>Difficult to manage full machine learning model lifecycle</li><li>The teams are disparate and releases are painful</li> <li>Most systems exist as "black boxes," little feedback during/post deployment</li></ul>|<ul><li>Manual builds and deployments</li><li>Manual testing of model and application</li><li>No centralized tracking of model performance</li><li>Training of model is manual</li></u>|<u><li>Personal project</li><li>POC</li></u>|
+|1️⃣|DevOps, No MLOps|<ul><li>Releases are less painful than No MLOps, but rely on Data Team for every new model</li><li>Still limited feedback on how well a model performs in production</li><li>Difficult to trace/reproduce results</li></ul>|<ul><li>Automated builds</li><li>Automated tests for application code</li><ul>|<u><li>Moving from proof of concept to production</li><li>When you need some automation</li></u>|
+|2️⃣|Automated Training |<ul><li>Training environment is fully managed and traceable</li><li>Easy to reproduce model</li><li>Releases are manual, but low friction</li>|<ul><li>Automated model training</li><li>Centralized tracking of model training performance</li><li>Model management</li><ul>|<u><li>When you have increasing number of use cases</li><li>Three or more use cases, you should definitely consider automating!</li></u>|
+|3️⃣|Automated Deployment |<ul><li>Releases are low friction and automatic</li><li>Full traceability from deployment back to original data</li><li>Entire environment managed: train > test > production</li>|<ul><li>Integrated A/B testing of model performance for deployment</li><li>Automated tests for all code</li><li>Centralized training of model training performance</li><ul>|<u><li>Multiple use cases</li><li>More mature + important use cases</li></u>|
+|4️⃣|Full MLOps Automation |<ul><li>Full system automated and easily monitored</li><li>Production systems are providing information on how to improve and, in some cases, automatically improve with new models</li><li>Approaching a zero-downtime system</li></ul>|<ul><li>Automated model training and testing</li><li>Verbose, centralized metrics from deployed model</li></ul>|<u><li>Should model retraining and deployment be automated as well?</li><li>Super important to take a pragmatic decision! Do you really need level 4?</li></u>|
