@@ -3,7 +3,7 @@ Free MLOps course from DataTalks.Club
 
 
 
-![MLOPS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/images/banner_mlops-zoomcamp.png)
+![MLOPS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/images/banner.png)
 
 
 
