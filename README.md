@@ -7,10 +7,14 @@ Free MLOps course from DataTalks.Club
 
 
 
-## Zoomcamp Progress:
-| Id | Module Session                                | Start date | Finish date | Dead line    | Link    | 
-|----|-----------------------------------------------|------------|-------------|--------------|---------|
-|01  | Introduction to MLOPS               | 11/06/2022   | 11/06/2022 | -  | [Module1](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/01-Intro) | 
-|02  | Exepriment & Tracking               | 12/06/2022   | 15/06/2022 | -  | [Module2](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/02-experiment-tracking) |
-|03  | Orchestration                       | 15/06/2022 |             | -  | [Module3](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/03-orchestration) |
-|04  | Deployment                          | 18/06/2022 |              | -  | [Module4](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/04-deployment)|
+Our MLOps Zoomcamp course
+
+Sign up here: https://airtable.com/shrCb8y6eTbPKwSTL (it's not automated, you will not receive an email immediately after filling in the form)
+Register in DataTalks.Club's Slack
+Join the #course-mlops-zoomcamp channel
+Tweet about the course!
+Subscribe to the public Google calendar (subscription works from desktop only)
+Start watching course videos! Course playlist
+Technical FAQ
+For announcements, join our Telegram channel
+Leaderboard
