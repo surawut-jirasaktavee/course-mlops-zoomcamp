@@ -83,4 +83,4 @@ docker run hello-world
 
 You should see something like this
 
-[docker run hello-world](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/01-intro/images/Screen%20Shot%202565-06-18%20at%2022.23.29.png)
+![docker run hello-world](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/01-intro/images/Screen%20Shot%202565-06-18%20at%2022.23.29.png)
