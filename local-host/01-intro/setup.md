@@ -57,7 +57,7 @@
 For the `Docker` and `Docker-compose` in Apple Silicon architecture come together in the `Docker Desktop`. So we can download only one time.
 Click &#8594; [Docker & Docker-compose](https://www.docker.com/products/docker-desktop/) and then follow the instructions to install it.
 
-For the command-line install docker and docker-compose by `brew` packages (install brew)[https://brew.sh/]:
+For the command-line installation docker and docker-compose by `brew` packages [install brew](https://brew.sh/):
 
 ````zsh
 brew install docker --cask
