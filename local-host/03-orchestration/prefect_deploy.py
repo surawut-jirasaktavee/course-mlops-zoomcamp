@@ -12,12 +12,13 @@ from hyperopt.pyll import scope
 
 import mlflow
 
-from search_run import mlflow_client
-
 from pathlib import Path
 
 from prefect import flow, task
 from prefect.task_runners import SequentialTaskRunner
+from mlflow.entities import ViewType
+from mlflow.tracking import MlflowClient 
+
 
 @task
 def read_dataframe(filename):
@@ -102,10 +103,22 @@ def train_model_search(train, valid, y_val):
     )
     return
 
-def param():
+@task
+def param(id=1):
     
-    client = mlflow_client()
-    run = client.runs()
+    mlflow_tracking_uri = 'sqlite:///mlflow.db'
+    client = MlflowClient(tracking_uri=mlflow_tracking_uri)
+    experiments = client.list_experiments()
+    exp_ids = list(experiments[id].experiment_id)[-1]
+    
+    run = client().search_runs(
+                experiment_ids=exp_ids,
+                filter_string="",
+                run_view_type=ViewType.ACTIVE_ONLY,
+                max_results=10,
+                order_by=None  
+    )
+    
     learning_rate = run.data.params['learning_rate']
     max_depth = run.data.params['max_depth']
     min_child_weight = run.data.params['min_child_weight']
@@ -156,6 +169,9 @@ def train_best_model(train, valid, y_val, dv, learning_rate, max_depth, min_chil
 @flow(task_runner=SequentialTaskRunner())
 def main(train_path: str="./data/green_tripdata_2021-01.parquet",
         val_path: str="./data/green_tripdata_2021-02.parquet"):
+    
+    from search_run import mlflow_client
+    
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("nyc-taxi-experiment")
     X_train = read_dataframe(train_path)
@@ -174,6 +190,7 @@ from datetime import timedelta
 
 DeploymentSpec(
     flow=main,
+    flow_location='./prefect_deploy.py',
     name="model_training",
     schedule=IntervalSchedule(interval=timedelta(minutes=5)),
     flow_runner=SubprocessFlowRunner(),
