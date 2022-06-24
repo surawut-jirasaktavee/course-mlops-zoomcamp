@@ -43,7 +43,7 @@ Data scientists and ML engineers. Also software engineers and data engineers int
 Course start: 16 of May
 
 
-### Asking for help in Slack
+### Asking for help in Slack!
 
 The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-mlops-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C02R98X7DS9) channel.
 
