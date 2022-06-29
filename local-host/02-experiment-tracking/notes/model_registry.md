@@ -2,7 +2,8 @@
 ---
 Reference [mlflow model registry docs](https://www.mlflow.org/docs/latest/registry.html)
 
-![Model registry](https://databricks.com/blog/2019/10/17/introducing-the-mlflow-model-registry.html)
+![Model registry](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/images/model-registry-new.png)
+
 ref: [image]
 
 
