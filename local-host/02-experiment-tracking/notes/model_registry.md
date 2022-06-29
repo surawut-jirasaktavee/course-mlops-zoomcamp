@@ -55,7 +55,7 @@ And get information about the model selected from run_id resulting as rnumerator
 for run in runs:
     print(f"run id: {run.info.run_id}, rmse: {run.data.metrics['rmse']:.4f}")
 ```
-![Model information]()
+![Model information](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/images/order_by_run_id.png)
 
 ### Interacting with the Model Registry
 
