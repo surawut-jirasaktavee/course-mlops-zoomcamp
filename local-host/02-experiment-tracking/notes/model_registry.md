@@ -4,7 +4,7 @@ Reference [mlflow model registry docs](https://www.mlflow.org/docs/latest/regist
 
 ![Model registry](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/02-experiment-tracking/images/model-registry-new.png)
 
-ref: [image]
+ref: [image](https://databricks.com/blog/2019/10/17/introducing-the-mlflow-model-registry.html)
 
 
 From the previous module in the tracking server and model management, you can store the model and model artifacts. Once you grow up your model and model artifact are the same as well. In this case, you can register those models into `MLflow` and you may decide that some of these models that ready for production, and then the deployment team can just take a look at the `Model Registry`.
