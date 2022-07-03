@@ -9,9 +9,9 @@
 
 ## Key takeaways from Module-1
 
-- [x] [Intro to MLOps](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/01-intro/01-intro.md)
-- [x] [Environment Setup](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/01-intro/setup.md)
-- [x] [MLOps Maturity Models Summarized](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/local-host/01-intro/mlops_maturity.md)
+- [x] [Intro to MLOps](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/01-intro/01-intro.md)
+- [x] [Environment Setup](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/01-intro/setup.md)
+- [x] [MLOps Maturity Models Summarized](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/01-intro/mlops_maturity.md)
 
 
 Others [MLOps-topic](https://github.com/topics/mlops)
