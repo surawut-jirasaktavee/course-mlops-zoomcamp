@@ -117,7 +117,7 @@ This is a draft and will change.
 
 [More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
 
-### Module 5: Model Monitoring
+### [Module 5: Model Monitoring](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/05-monitoring)
 
 * ML monitoring vs software monitoring 
 * Data quality monitoring
@@ -126,8 +126,10 @@ This is a draft and will change.
 * Tools: Evidently, Prometheus and Grafana
 * Homework 
 
+[More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/05-monitoring)
 
-### Module 6: Best Practices
+
+### [Module 6: Best Practices](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/06-best-practices)
 
 * Devops
 * Virtual environments and Docker
@@ -139,6 +141,7 @@ This is a draft and will change.
 * Makefiles
 * Homework
 
+[More details](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/06-best-practices)
 
 ### Module 7: Processes
 
