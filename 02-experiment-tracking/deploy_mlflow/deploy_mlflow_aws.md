@@ -172,5 +172,66 @@ And open the **Additional configuration** on bottom of **Connectivity** pane to 
 
 ## AWS S3 Bucket
 
+Search for `S3` and open the **S3 features**
+
+![S3](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/s3_bucket/goto_S3.png)
+
 ### Create S3 Bucket for Artifacts Store
 
+1. Click to `Create bucket` 
+
+![Create bucket](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/s3_bucket/create_s3_bucket.png)
+
+2. Under **General configuration** pane. set up your `Backet name`
+
+![Set bucket name](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/s3_bucket/setup_bucket_name.png)
+
+3. leave the rest as default and create the bucket, Then you will see your bucket on the `Bucket` page
+
+![Finished create bucket](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/s3_bucket/setup_bucket_name.png)
+
+**Additional
+
+## AWS Command line interface
+
+### AWS CLI installation instructions
+
+1. Download the `AWS CLI` for the [link](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+2. Open installation file and choose the following ways to the **AWS CLI**
+
+    - **For all users on the computer (requires sudo)**
+        - You can install to any folder, or choose the recommended default folder of `/usr/local/aws-cli`.
+        - The installer automatically creates a symlink at `/usr/local/bin/aws` that links to the main program in the installation folder you chose.
+
+    - **For only the current user (doesn't require sudo)**
+        - You can install to any folder to which you have write permission.
+        - Due to standard user permissions, after the installer finishes, you must manually create a symlink file in your `$PATH` that points to the aws and aws_completer programs by using the following commands at the command prompt. If your $PATH includes a folder you can write to, you can run the following command without sudo if you specify that folder as the target's path. If you don't have a writable folder in your `$PATH`, you must use sudo in the commands to get permissions to write to the specified target folder. The default location for a symlink is `/usr/local/bin/`.
+
+        ```Zsh
+        sudo ln -s /folder/installed/aws-cli/aws /usr/local/bin/aws
+        sudo ln -s /folder/installed/aws-cli/aws_completer /usr/local/bin/aws_completer
+        ```
+
+        > Note
+        > You can view debug logs for the installation by pressing Cmd+L anywhere in the installer. This opens a log pane that enables you to filter and save the log. The log file is also automatically saved to /var/log/install.log.
+        
+3. To verify that the shell can find and run the aws command in your $PATH, use the following commands. 
+
+```Zsh
+which aws
+```
+
+```Zsh
+aws --version
+```
+
+![Verify CLI](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_cli/aws_cli_install.png)
+
+4. Try to test `AWS CLI` with some command interface with **S3**
+you will find some error as above code snippet that told you to configure your **AWS configuration** first
+
+
+```Zsh
+aws s3 ls
+```
