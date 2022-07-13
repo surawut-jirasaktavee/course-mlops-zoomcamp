@@ -146,9 +146,10 @@ Go to Amazon RDS page to create the Databases
 
 ![Public access](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/public_access_no.png)
 
-And open the **Additional configuration** on bottom of **Connectivity** pane to configure the Database port to `5432`
+And open the **Additional configuration** on bottom of **Connectivity** pane to configure the Database port to `5432`.
 
 ![db port](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/db_port.png)
+
 
 6. Don't forget to Initial database name. Open **Additional configuration** pane and put your database name
 
@@ -216,7 +217,7 @@ Search for `S3` and open the **S3 features**
         > Note
         > You can view debug logs for the installation by pressing Cmd+L anywhere in the installer. This opens a log pane that enables you to filter and save the log. The log file is also automatically saved to /var/log/install.log.
         
-3. To verify that the shell can find and run the aws command in your $PATH, use the following commands. 
+3. To verify that the shell can find and run the aws command in your $PATH, use the following commands. And then try to interface with my s3 and found some error as below, That told you to configure your **AWS configuration** first
 
 ```Zsh
 which aws
@@ -228,10 +229,43 @@ aws --version
 
 ![Verify CLI](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_cli/aws_cli_install.png)
 
-4. Try to test `AWS CLI` with some command interface with **S3**
-you will find some error as above code snippet that told you to configure your **AWS configuration** first
-
+4. You can configure **AWS CLI** with following command
 
 ```Zsh
-aws s3 ls
+aws configure
 ```
+
+![AWS Configure](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_cli/configure_aws_edit.png)
+
+Then you will prompt to put your **AWS Access Key ID** and **AWS Secret Access Key**
+for the region and output you can skip it and put what your desired.
+
+Reference: [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html)
+
+## AWS Secret Credentials
+
+## Create AWS Secret Credentials
+
+1. Login with your root user.
+2. On the top right bar click on <your name>.
+3. Select `Security Credentials`
+
+![Security credentials](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_credential/security_credential.png)
+
+4. Open the `Access Key` pane. Click on `Create New Access Key` Bottom.
+
+![Access Key](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_credential/create_credential_edit.png)
+
+5. You will see the **pop-up** pane that show you **Access Key ID** and **Secrect Access Key**, So Download Key File **NOW!!** because if you not donwload it now you will not be able to retrieve your secret access key again
+
+![Secret Credentials](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_credential/get_credential_edit.png)
+
+**Note**: 
+- You can create at most two secret credentials.
+- If you want to create new one in case you already have two key. you must to delete one of them first and then you can create the new one.
+- You can active/deactive your credentials. Please make sure you not want to use it before deactive or delete it.
+- You must to deactive the credentials before delete it.
+
+
+
+Reference: [Getting Your Credentials](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-your-credentials.html)
