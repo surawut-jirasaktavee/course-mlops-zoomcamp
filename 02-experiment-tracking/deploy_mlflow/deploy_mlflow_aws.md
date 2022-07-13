@@ -39,7 +39,7 @@
 
 8. Check your instance from the **Instance info** page
 
-![Instance info](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/check_instance_from_ui.png)
+![Instance info](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/check_instance_from_ui_edit.png)
 
 ### Create security rule of EC2 instance
 
@@ -53,7 +53,7 @@
 
 **Note**: you can check `Security group name` of your instance by go to your instance and under the `security` tab.
 
-![Check security group](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/check_security_group.png)
+![Check security group](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/check_security_group_edit.png)
 
 3. Add new rule to **inbound rule** of your instance
 I have customize to `Custom TCP` with `TCP Protocol` and `Port range 5000` and `Anywhere IPv4` 
@@ -68,7 +68,7 @@ I have customize to `Custom TCP` with `TCP Protocol` and `Port range 5000` and `
 
 **Follow thses step to connect with your instance by SSH**
 
-![Connect to instance](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/connect_to_instance.png)
+![Connect to instance](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/connect_to_instance_edit.png)
 
 1. Open your local terminal
 2. Locate your private key file that you have create in the EC2 process. The file extension is `<your key pair name>.pem` in my case is `prem-mlops-zoomcamp-pem`
