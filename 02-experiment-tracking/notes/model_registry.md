@@ -80,6 +80,7 @@ latest_versions = client.get_latest_versions(name=model_name)
 
 model_none_versions = list()
 model_stg_versions = list()
+model_prod_versions = list()
 
 for version in latest_versions:
     
@@ -88,15 +89,18 @@ for version in latest_versions:
         model_none_versions.append(version.version)
     elif version.current_stage == "Staging":
         print(f"version: {version.version}, stage: {version.current_stage}")
-        model_stg_versions.append(version.version) 
+        model_stg_versions.append(version.version)
+    elif version.cureent_stage == "Production":
+        print(f"version: {version.version}, stage: {version.current_stage}")
+        model_prod_versions.append(version.version)
 ```
 
-I have designed to collect the model from each stage separately.
+I have designed to collect the model from each stage separately and want to promote the model from staging to production.
 
 For `Promoting` and `Demoting` the model
 
 ```Python
-selected_model = model_none_versions[-1]
+selected_model = model_stg_versions[-1]
 model_stages = ["Staging", "Production", "Archived", "None"]
 new_stage = model_stages[0]
 
