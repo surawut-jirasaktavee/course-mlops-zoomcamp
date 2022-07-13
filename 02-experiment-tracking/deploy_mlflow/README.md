@@ -12,4 +12,4 @@
 
 - [x] [**Create AWS Security Credentials**](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/deploy_mlflow_aws.md#aws-secret-credentials)
 
-- [x] [**Deploy MLflow on AWS***](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/deploy_mlflow_aws.md#deploy-mlflow-on-aws)
+- [x] [**Deploy MLflow on AWS**](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/deploy_mlflow_aws.md#deploy-mlflow-on-aws)
