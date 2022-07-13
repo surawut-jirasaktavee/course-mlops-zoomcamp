@@ -44,9 +44,6 @@
 ### Create security rule of EC2 instance
 
 1. After finished to create the `EC2 Instance` under the **Network & Security** tab go to `Security Groups`
-
-![Security Group](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/security_group.png)
-
 2. On the **Security Group** page click on `Security group ID` that is the same of your `Security group name` of your `EC2 instance`
 
 ![Security group ID](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/security_group.png)
@@ -121,7 +118,57 @@ source ~/path/to/.ssh/config
 
 ## AWS RDS PostgreSQL Database
 
+Go to Amazon RDS page to create the Databases
+
+![AWS RDS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/go_to_rds.png)
+
 ### Create RDS Postgresql database for Backend Store
+
+1. On Amazon RDS page select `Create database` on **Amazon Aurora** pane
+
+![Crate db](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/create_db.png)
+
+2. Under **Create database** & **Engine option** pane, Choose a database creation method, In my case I have selected `Standard create` and selected `PostgreSQL` database
+
+![Create PostgreSQL](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/select_postgres.png)
+
+3. Under the **Setting** pane put your DB cluster identifier and your master username and password, In my case I selected the `Auto generate a password` 
+
+![DB information](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/setting_postgres.png)
+
+**Note**: If you select to `Auto generate a password` once you click to create the database in to UI on the top blue pane pop-up you have to download the generated password from the **AWS** that is the one time generate for you.
+
+4. Under the **Instance configuration** select the DB instance class as you want
+
+![DB instance class](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/select_db_instance_class.png)
+
+5. Under the **Connectivity** pane on the `Public access` select `No` for allow only Amazon EC2 instances and devices inside the VPC can connect to the database.
+
+![Public access](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/public_access_no.png)
+
+And open the **Additional configuration** on bottom of **Connectivity** pane to configure the Database port to `5432`
+
+![db port](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/db_port.png)
+
+6. Don't forget to Initial database name. Open **Additional configuration** pane and put your database name
+
+![Initial db name](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/initial_db_name.png)
+
+### Create Security rule for PostgreSQl Database
+
+1. Under the **Connectiviti & security** pane go to VPC security groups
+
+![VPC security groups](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/inside_db_tab.png)
+
+2. Goto `Inbound rules` tab. Click to `Edit inbound rules`
+
+![Inbound rule tab](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/inbound_rule_tab.png)
+
+3. Add rule for `PostgreSQL type` with `TCP Protocol`, `Port range 5000` and select the **Security Groups** with the same of your `EC2 Instance` 
+
+![New rule](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/rds_postgres/add_security_rule.png)
+
+4. Save the rule and check Database status.
 
 ## AWS S3 Bucket
 
