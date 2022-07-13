@@ -28,7 +28,7 @@
 6. Create new key pair in case that you want to connect with `SSH`
 
 ![Create new key pair](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/create_key_pair_for_ssh.png)
-[Create key pair name](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/set_key_pair_name.png)
+![Create key pair name](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/set_key_pair_name.png)
 
 **Note**: Once create key pair you need to save or download you key pair file because just only one time that you can find it when you created it.
 
