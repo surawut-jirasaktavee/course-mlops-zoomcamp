@@ -1,9 +1,9 @@
 # Deploy MLflow on AWS cloud provider
 ---
 
-## EC2 Instance
+## AWS EC2 Instance
 
-## Create EC2 instnace for Remote Tracking Server
+### Create EC2 instnace for Remote Tracking Server
 
 1. Goto the **EC2** page and `Launch instance` 
 
@@ -41,7 +41,7 @@
 
 ![Instance info](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/check_instance_from_ui.png)
 
-## Create security rule 
+### Create security rule of EC2 instance
 
 1. After finished to create the `EC2 Instance` under the **Network & Security** tab go to `Security Groups`
 
@@ -64,7 +64,66 @@ I have customize to `Custom TCP` with `TCP Protocol` and `Port range 5000` and `
 
 ![Add new rule](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/new_rule.png)
 
-## Create RDS Postgresql database for Backend Store
+### Connect to EC2 Instance with SSH
 
-## Create S3 Bucket for Artifacts Store
+**Follow thses step to connect with your instance by SSH**
+
+![Connect to instance](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/connect_to_instance.png)
+
+1. Open your local terminal
+2. Locate your private key file that you have create in the EC2 process. The file extension is `<your key pair name>.pem` in my case is `prem-mlops-zoomcamp-pem`
+3. Run this command, to ensure your key is not publicly viewable.
+
+```Zsh
+chmod 400 prem-mlops-zoomcamp-pem
+```
+
+4. Connect to your instance using its Public DNS from the EC2 instance page
+For example my case: 
+
+![Public DNS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/public_dns.png)
+
+```Zsh
+ssh -i "prem-mlops-zoomcamp.pem" ubuntu@ec2-13-57-13-126.us-west-1.compute.amazonaws.com
+```
+
+**Optional**: 
+
+To avoid typing the full `SSH` command you and set the config and then you can just type `SSH` command with your instance ID(shortly)
+For example:
+
+```Zsh
+ssh <your instance ID>
+```
+
+follow these code snippet below:
+
+```Zsh
+nano ~/path/to/.ssh/config
+```
+
+open the config file and set your credential in the file.
+
+```Zsh
+Host mlops-zoomcamp-prem
+    Hostname 13.57.13.126
+    User ubuntu
+    IdentityFile ~/path/to/save/<credentials>.pem
+    StrictHostKeyChecking no
+```
+
+To execute the config file.
+
+```zsh
+source ~/path/to/.ssh/config
+```
+
+
+## AWS RDS PostgreSQL Database
+
+### Create RDS Postgresql database for Backend Store
+
+## AWS S3 Bucket
+
+### Create S3 Bucket for Artifacts Store
 
