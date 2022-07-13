@@ -238,7 +238,9 @@ aws configure
 ![AWS Configure](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_cli/configure_aws_edit.png)
 
 Then you will prompt to put your **AWS Access Key ID** and **AWS Secret Access Key**
-for the region and output you can skip it and put what your desired.
+
+For the **region** and **output** you can skip it and put what your desired. 
+Please check the reference below to see more `AWS CLI`
 
 Reference: [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html)
 
@@ -269,3 +271,15 @@ Reference: [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documenta
 
 
 Reference: [Getting Your Credentials](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-your-credentials.html)
+
+## Deploy MLflow on AWS
+
+Deploying `MLflow server` with `Remote tracking`, `Backend Store`, and `Artifact Store` by run following command:
+
+```Zsh
+mlflow server \
+-h 0.0.0.0 \
+-p 5000 \
+--backend-store-uri postgresql://<db_username>:<db_pwd>@<db_endpoint>:<db_port>/<db_name> \
+--default-artifact-root s3://<s3_name>
+```
