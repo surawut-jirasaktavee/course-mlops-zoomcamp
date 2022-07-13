@@ -81,7 +81,7 @@ chmod 400 prem-mlops-zoomcamp-pem
 4. Connect to your instance using its Public DNS from the EC2 instance page
 For example my case: 
 
-![Public DNS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/public_dns.png)
+![Public DNS](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/images/aws_ec2_instance/public_dns_edit.png)
 
 ```Zsh
 ssh -i "prem-mlops-zoomcamp.pem" ubuntu@ec2-<your_public_ip>.us-west-1.compute.amazonaws.com
