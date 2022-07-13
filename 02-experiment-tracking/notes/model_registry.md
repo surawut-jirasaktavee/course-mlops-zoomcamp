@@ -60,34 +60,45 @@ for run in runs:
 ### Interacting with the Model Registry
 
 Once we want to add the model to the model registry we can follow this way
+In my case, I have a few models that I want to register it at one time so I have looped over the models.
 
 ```Python
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 
-run_id = <your_run_id>"
-model_uri = f"runs:/{run_id}/model"
-mlflow.register_model(model_uri=model_uri, name="taxi_trip_regressor")
+for run_id in model_list:
+    model_uri = f"runs:/{run_id}/model"
+    mlflow.register_model(model_uri=model_uri, 
+                          name="<model name>",
+                          await_registration_for=120)
 ```
 
 And get the models in model registry with:
 
 ```Python
-model_name = "taxi_trip_regressor"
+model_name = "<model name>"
 latest_versions = client.get_latest_versions(name=model_name)
 
-model_versions = list()
+model_none_versions = list()
+model_stg_versions = list()
 
 for version in latest_versions:
-    print(f"version: {version.version}, stage: {version.current_stage}")
-    model_versions.append(version.version)
+    
+    if version.current_stage == "None":
+        print(f"version: {version.version}, stage: {version.current_stage}")
+        model_none_versions.append(version.version)
+    elif version.current_stage == "Staging":
+        print(f"version: {version.version}, stage: {version.current_stage}")
+        model_stg_versions.append(version.version) 
 ```
+
+I have designed to collect the model from each stage separately.
 
 For `Promoting` and `Demoting` the model
 
 ```Python
-selected_model = "<model version>"
+selected_model = model_none_versions[-1]
 model_stages = ["Staging", "Production", "Archived", "None"]
-new_stage = "<model stage>"
+new_stage = model_stages[0]
 
 client.transition_model_version_stage(
     name=model_name,
@@ -116,7 +127,7 @@ def update_model_metadata(model_name, new_prod_ver, old_prod_ver):
         version=old_prod_ver,
         description=f"Transition model to archive on {date}")
     
-    return f"Operation Succesfully"
+    return f"Updated model version Succesfully"
 ```
 
 Those code snippets above are just the example you can design your way.
