@@ -135,3 +135,4 @@ def update_model_metadata(model_name, new_prod_ver, old_prod_ver):
 ```
 
 Those code snippets above are just the example you can design your way.
+![Promoting model from staging to production](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/images/promoting_model_prod.png)
