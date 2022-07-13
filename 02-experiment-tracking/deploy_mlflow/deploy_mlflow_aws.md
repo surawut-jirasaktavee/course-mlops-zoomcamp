@@ -276,7 +276,7 @@ Reference: [Getting Your Credentials](https://docs.aws.amazon.com/sdk-for-javasc
 
 Deploying `MLflow server` with `Remote tracking`, `Backend Store`, and `Artifact Store` by run following command:
 
-```Zsh
+```zsh
 mlflow server \
 -h 0.0.0.0 \
 -p 5000 \
