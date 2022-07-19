@@ -43,6 +43,8 @@ prefect orion start
 
 ![prefect_started](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_started.png)
 
-![prefect_ui](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_ui.png
+![prefect_ui](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_ui.png)
 
+Under the `Flow Runs` in the below pane of the page. inside that page we can select the run name and see more about the log of the run events.
 
+![flow runs](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_log.png)
