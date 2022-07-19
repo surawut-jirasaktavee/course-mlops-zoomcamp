@@ -16,4 +16,26 @@ To avoid **model decay** we can regularly re-train the model and then can publis
 
 ref: [Data and concept drift](https://evidentlyai.com/blog/machine-learning-monitoring-data-and-concept-drift)
 
+That why the **Orchestration** tools come to handle or help in the machine learning project to help Data Scientist or Machine Learning Engineer can focus on the model performance and training as continuousely.
+
+## Prefect
+
+### Prefect installation
+
+`Prefect` Installation with beta version as follow:
+
+```Python
+pip install prefect==2.0b5
+```
+In order to use prefect you need to import the prefect module as follow:
+
+```Python
+from prefect import flow, task
+```
+Once you run the Python script the prefect will start `Prefect` run and you have to run the command below to start the prefect ui.
+
+```Python
+prefect orion start
+```
+
 
