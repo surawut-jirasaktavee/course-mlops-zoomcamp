@@ -17,7 +17,7 @@ import mlflow
 from search_run import mlflow_client
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
-mlflow.set_experiment("nyc-taxi-experiment")
+mlflow.set_experiment("taxi_trip_prediction-experiment")
 
 def read_dataframe(filename):
     df = pd.read_parquet(filename)
@@ -110,7 +110,7 @@ def train_best_model(train, valid, y_val, dv, learning_rate, max_depth, min_chil
         rmse = mean_squared_error(y_val, y_pred, squared=False)
         mlflow.log_metric("rmse", rmse)
 
-        artifact_path = Path('./models/')
+        artifact_path = Path('./mlflow/models/')
         artifact_path.mkdir(parents=True, exist_ok=True)
 
         with open(f"{artifact_path}/preprocessor.b", "wb") as f_out:
