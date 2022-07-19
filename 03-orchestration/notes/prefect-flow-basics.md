@@ -32,10 +32,17 @@ In order to use prefect you need to import the prefect module as follow:
 ```Python
 from prefect import flow, task
 ```
-Once you run the Python script the prefect will start `Prefect` run and you have to run the command below to start the prefect ui.
+Once you run the Python script the prefect will start `Prefect` run and you have to run the command below to start the **prefect ui**. then click on the url to open the `Prefect` web ui to explore the model pipeline.
 
 ```Python
 prefect orion start
 ```
+![prefect start on cli](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_start.png)
+
+![prefect_orion_start](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_orion_start.png)
+
+![prefect_started](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_started.png)
+
+![prefect_ui](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/prefect_ui.png
 
 
