@@ -5,12 +5,9 @@ First of all, We have to **Modifying network protocols** it default of an `AWS E
 
 1. Go to EC2 page (you need to have existing EC2 instance in this process. if not, [create it first](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/02-experiment-tracking/deploy_mlflow/deploy_mlflow_aws.md#aws-ec2-instance))
 2. Go to the `Security Group`
-
-![security_group](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/security_group.png)
-
 3. Select the `Security Group ID` that your instance use that rule.
 
-![add_rule](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/add_rule.png)
+![security_group](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/security_group.png)
 
 4. Under Inbound rules pane, click on `Edit inbound rules` then will navigate you to other page.
 5. Click on the `Add rule` and add the following firewall rules to this group.
@@ -19,6 +16,7 @@ First of all, We have to **Modifying network protocols** it default of an `AWS E
 - HTTP on port 80 and Anywhere IPv4
 - CUstom TCP and UDP on port 4200 and Anywhere IPv4
 
+![add_rule](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/add_rule.png)
 ![add_rules](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/add_rules.png)
 
 6. Then save rule
