@@ -10,7 +10,10 @@ First of all, We have to **Modifying network protocols** it default of an `AWS E
 ![security_group](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/security_group.png)
 
 4. Under Inbound rules pane, click on `Edit inbound rules` then will navigate you to other page.
-5. Click on the `Add rule` and add the following firewall rules to this group.
+
+![inbound_rule](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/inbound_rule.png)
+
+6. Click on the `Add rule` and add the following firewall rules to this group.
 
 - HTTPS on port 443 and Anywhere IPv4
 - HTTP on port 80 and Anywhere IPv4
