@@ -15,7 +15,7 @@ from hyperopt.pyll import scope
 import mlflow
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
-mlflow.set_experiment("nyc-taxi-experiment")
+mlflow.set_experiment("taxi_trip_prediction-experiment")
 
 def read_dataframe(filename):
     df = pd.read_parquet(filename)
