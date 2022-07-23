@@ -19,6 +19,13 @@ First of all, We have to **Modifying network protocols** it default of an `AWS E
 - HTTP on port 80 and Anywhere IPv4
 - CUstom TCP and UDP on port 4200 and Anywhere IPv4
 
+| **Connection Type** | **Port** |
+|---------------------|----------|
+| HTTP                | [80]     |
+| HTTPS               | [443]    |
+| TCP                 | 4200     |
+| UDP                 | 4200     |
+
 ![add_rule](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/add_rule.png)
 ![add_rules](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/images/add_rules.png)
 
