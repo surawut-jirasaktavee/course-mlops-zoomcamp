@@ -194,13 +194,12 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
 aws_s3_file_packager = FilePackager(filesystem=RemoteFileSystem(
     basepath="s3://prefect-artifacts-prem/artifacts/",
     settings={
-        "key": "AKIAYASWQ47K6E5QPBCS",
-        "secret": "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",
+        "key": ""        "secret": "",
     }
 ))
 
 Deployment(
-    flow=FlowScript("./prefect_deploy.py", name="main"),
+    flow=FlowScript(path="./prefect_deploy.py", name="main"),
     name="model_training",
     schedule=IntervalSchedule(interval=timedelta(minutes=5)),
     flow_runner=SubprocessFlowRunner(),
@@ -212,3 +211,4 @@ Deployment(
 #     main()
 
 
+# PREFECT_API_URL="http://13.52.76.201:4200/api"
