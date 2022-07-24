@@ -194,7 +194,8 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
 aws_s3_file_packager = FilePackager(filesystem=RemoteFileSystem(
     basepath="s3://prefect-artifacts-prem/artifacts/",
     settings={
-        "key": ""        "secret": "",
+        "key": "",
+        "secret": ""
     }
 ))
 
