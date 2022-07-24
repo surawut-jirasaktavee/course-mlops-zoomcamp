@@ -14,16 +14,19 @@ import mlflow
 
 from pathlib import Path
 
+from prefect.deployments import FlowScript
 from prefect.deployments import Deployment
 from prefect import flow, task
 from prefect.task_runners import SequentialTaskRunner
 from prefect.filesystems import RemoteFileSystem
 from prefect.logging import get_run_logger
 from prefect.packaging import FilePackager
+from prefect.orion.schemas.schedules import IntervalSchedule
+from prefect.flow_runners import SubprocessFlowRunner
+from datetime import timedelta
 
 from mlflow.entities import ViewType
 from mlflow.tracking import MlflowClient 
-
 
 @task
 def read_dataframe(filename):
@@ -188,18 +191,24 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
     learning_rate, max_depth, min_child_weight, objective, reg_alpha, reg_lambda, seed = param()
     train_best_model(train, valid, y_val, dv, learning_rate, max_depth, min_child_weight, objective, reg_alpha, reg_lambda, seed)
 
-from prefect.deployments import DeploymentSpec
-from prefect.orion.schemas.schedules import IntervalSchedule
-from prefect.flow_runners import SubprocessFlowRunner
-from datetime import timedelta
+aws_s3_file_packager = FilePackager(filesystem=RemoteFileSystem(
+    basepath="s3://prefect-artifacts-prem/artifacts/",
+    settings={
+        "key": "AKIAYASWQ47K6E5QPBCS",
+        "secret": "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",
+    }
+))
 
-DeploymentSpec(
-    flow=main,
-    flow_location='./prefect_deploy.py',
+Deployment(
+    flow=FlowScript("./prefect_deploy.py", name="main"),
     name="model_training",
     schedule=IntervalSchedule(interval=timedelta(minutes=5)),
     flow_runner=SubprocessFlowRunner(),
-    tags=["ml"]
+    packager=aws_s3_file_packager,
+    tags=["test module3"]
 )
 
-main()
+# if __name__ == "main":
+#     main()
+
+
