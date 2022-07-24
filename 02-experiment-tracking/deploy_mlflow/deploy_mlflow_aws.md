@@ -268,7 +268,16 @@ Reference: [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documenta
 - You can active/deactive your credentials. Please make sure you not want to use it before deactive or delete it.
 - You must to deactive the credentials before delete it.
 
-
+**Additional**:
+You can get your access key and secret key from the `CLI` by run these command:
+    
+```zsh
+aws configure get aws_access_key_id 
+```
+    
+```zsh
+aws configure get aws_secret_access_key 
+```
 
 Reference: [Getting Your Credentials](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-your-credentials.html)
 
