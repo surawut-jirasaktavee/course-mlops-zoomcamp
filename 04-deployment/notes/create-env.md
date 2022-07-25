@@ -17,6 +17,7 @@ pip freeze | grep <module>
 ```
 
 Now you know the specific version of your packages on each module let's create an environment. 
+
 For example:
 
 ```Python
