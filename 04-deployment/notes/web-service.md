@@ -20,7 +20,7 @@ if __name__ == "__main__":
 In the above code snippet:
 
 1. Import the **Flask** class. An instance of this class will be our application.
-2. Create an instance of this class. This first argument is the name of the application's module or package. `__name___` is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.
+2. Create an instance of this class. This first argument is the name of the application's module or package. `__name__` is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.
 3. Then use the **route()** decorator to tell Flask what URL should trigger our function.
 4. The function will return the message we want to display to user's broswer or anything else.
 5. Run the application with `app.run()` with open debug mode, host, and port number.
@@ -91,3 +91,9 @@ docker run -it --rm -p 9696:9696 <image-name>:<tag>
 ```
 
 Now we can use the model in the purpose of model.
+
+References:
+
+[Flask](https://flask.palletsprojects.com/en/2.1.x/)
+[Flask Gunicorn](https://flask.palletsprojects.com/en/2.1.x/deploying/gunicorn/)
+[Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
