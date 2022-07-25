@@ -3,4 +3,4 @@
 
 ## Key takeaways Module-4
 
-- [x] [web-service]([https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/03-orchestration/notes/negative-engineering.md](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/04-deployment/notes/web-service.md))
+- [x] [web-service](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/04-deployment/notes/web-service.md)
