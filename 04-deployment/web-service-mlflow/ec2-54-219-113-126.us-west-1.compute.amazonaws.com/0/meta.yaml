@@ -1,0 +1,4 @@
+artifact_location: ec2-54-219-113-126.us-west-1.compute.amazonaws.com/0
+experiment_id: '1'
+lifecycle_stage: active
+name: Default

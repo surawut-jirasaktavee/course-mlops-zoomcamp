@@ -2,13 +2,15 @@ import os
 import pickle
 
 import mlflow
+
 from flask import Flask, request, jsonify
 
-
+os.environ['RUN_ID'] = "3fc5b94495d54d978b8dcb5094cccdcf"
 RUN_ID = os.getenv('RUN_ID')
+os.environ['AWS_PROFILE'] = 'MLOps-dev'
 
-logged_model = f's3://mlflow-models-alexey/1/{RUN_ID}/artifacts/model'
-# logged_model = f'runs:/{RUN_ID}/model'
+
+logged_model = f's3://mlflow-artifacts-prem/1/{RUN_ID}/artifacts/model'
 model = mlflow.pyfunc.load_model(logged_model)
 
 
