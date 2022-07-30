@@ -1,7 +1,5 @@
 # Machine Learning for Streaming with AWS
 
----
-
 * Scenario
 * Creating the role
 * Create a Lambda function, test it
