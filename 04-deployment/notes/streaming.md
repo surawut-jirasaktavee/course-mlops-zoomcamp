@@ -310,24 +310,24 @@ To sending this record:
 
     Run the command on the terminal with `AWS CLI`:
 
-    ```bash
-    KINESIS_STREAM_INPUT="ride_events"
-    ```
+```bash
+KINESIS_STREAM_INPUT="ride_events"
+```
 
-    ```bash
-    aws kinesis put-record \
-        --stream-name ${KINESIS_STREAM_INPUT} \
-        --partition-key 1 \
-        --cli-binary-format raw-in-base64-out \
-        --data '{
-            "ride": {
-                "PULocationID": 90,
-                "DOLocationID": 285,
-                "trip_distance": 3.22
-            },
-            "ride_id": 144
-        }'
-    ```
+```bash
+aws kinesis put-record \
+    --stream-name ${KINESIS_STREAM_INPUT} \
+    --partition-key 1 \
+    --cli-binary-format raw-in-base64-out \
+    --data '{
+        "ride": {
+            "PULocationID": 90,
+            "DOLocationID": 285,
+            "trip_distance": 3.22
+        },
+        "ride_id": 144
+    }'
+```
 
 After run the above command your will get the `shard_id` and `sequenceNumber` to print out to the terminal.
 I have to use this number in the next step.
