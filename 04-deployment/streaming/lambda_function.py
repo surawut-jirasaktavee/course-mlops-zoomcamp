@@ -31,8 +31,6 @@ def predict(features):
     
 def lambda_handler(event, context):
     
-    print(json.dumps(event))
-    
     predictions_events = list()
     
     for record in event['Records']:
@@ -49,7 +47,7 @@ def lambda_handler(event, context):
         
         prediction_event = {
             'model': 'ride_duration_prediction_model',
-            'version': '123',
+            'version': '1',
             'prediction': {
                 'ride_duration': prediction,
                 'ride_id': ride_id
