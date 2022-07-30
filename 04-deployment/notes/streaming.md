@@ -284,23 +284,23 @@ To connect the function to the stream. I have deploy with docker container.
 
 8. Pushing the docker image:
 
-```bash
-REMOTE_URI="551011018709.dkr.ecr.us-west-1.amazonaws.com/duration-model"
-REMOTE_TAG="v1"
-REMOTE_IMAGE=${REMOTE_URI}:${REMOTE_TAG}
+    ```bash
+    REMOTE_URI="551011018709.dkr.ecr.us-west-1.amazonaws.com/duration-model"
+    REMOTE_TAG="v1"
+    REMOTE_IMAGE=${REMOTE_URI}:${REMOTE_TAG}
 
-LOCAL_IMAGE="stream-model-duration:v1"
-docker tag ${LOCAL_IMAGE} ${REMOTE_IMAGE}
-docker push ${REMOTE_IMAGE}
-```
+    LOCAL_IMAGE="stream-model-duration:v1"
+    docker tag ${LOCAL_IMAGE} ${REMOTE_IMAGE}
+    docker push ${REMOTE_IMAGE}
+    ```
 
 ## Send the record
 
 ### Sending data
 
-TEST LOCALLY
+    TEST LOCALLY
 
-To sending this record:
+    To sending this record:
 
 * Set the name of the `KINESIS_STREAM_INPUT`.
 * Use the `AWS SDK` to send the `put-record` to the **Lambda Function**.
@@ -308,26 +308,26 @@ To sending this record:
   * Define partition-key of your Kinesis.
   * Define the sample data.
 
-Run the command on the terminal with `AWS CLI`:
+    Run the command on the terminal with `AWS CLI`:
 
-```bash
-KINESIS_STREAM_INPUT="ride_events"
-```
+    ```bash
+    KINESIS_STREAM_INPUT="ride_events"
+    ```
 
-```bash
-aws kinesis put-record \
-    --stream-name ${KINESIS_STREAM_INPUT} \
-    --partition-key 1 \
-    --cli-binary-format raw-in-base64-out \
-    --data '{
-        "ride": {
-            "PULocationID": 90,
-            "DOLocationID": 285,
-            "trip_distance": 3.22
-        },
-        "ride_id": 144
-    }'
-```
+    ```bash
+    aws kinesis put-record \
+        --stream-name ${KINESIS_STREAM_INPUT} \
+        --partition-key 1 \
+        --cli-binary-format raw-in-base64-out \
+        --data '{
+            "ride": {
+                "PULocationID": 90,
+                "DOLocationID": 285,
+                "trip_distance": 3.22
+            },
+            "ride_id": 144
+        }'
+    ```
 
 After run the above command your will get the `shard_id` and `sequenceNumber` to print out to the terminal.
 I have to use this number in the next step.
@@ -347,63 +347,63 @@ To read the data from the stream locally run to command:
     - Print the result to reading data from the stream.
     - This is the data from the previos command that send to the **Lambda function**.
 
-```bash
-KINESIS_STREAM_OUTPUT='ride_events'
-SHARD='shardId-000000000000'
+    ```bash
+    KINESIS_STREAM_OUTPUT='ride_events'
+    SHARD='shardId-000000000000'
 
-SHARD_ITERATOR=$(aws kinesis \
-    get-shard-iterator \
-        --shard-id ${SHARD} \
-        --shard-iterator-type AT_SEQUENCE_NUMBER \
-        --stream-name ${KINESIS_STREAM_OUTPUT} \
-        --query 'ShardIterator' \
-        --starting-sequence-number 49631818369979129679861815788598519962499637577139617794
-)
+    SHARD_ITERATOR=$(aws kinesis \
+        get-shard-iterator \
+            --shard-id ${SHARD} \
+            --shard-iterator-type AT_SEQUENCE_NUMBER \
+            --stream-name ${KINESIS_STREAM_OUTPUT} \
+            --query 'ShardIterator' \
+            --starting-sequence-number 49631818369979129679861815788598519962499637577139617794
+    )
 
-RESULT=$(aws kinesis get-records --shard-iterator $SHARD_ITERATOR)
+    RESULT=$(aws kinesis get-records --shard-iterator $SHARD_ITERATOR)
 
-echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode | jq
+    echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode | jq
 
-```
+    ```
 
 #### Running the test
 
 In order to test locally I have to set the environment variable to use as the parameter and send to the `lambda_function.py` as following.
 
-```Bash
-export PREDICTIONS_STREAM_NAME="ride_predictions"
-export RUN_ID="3fc5b94495d54d978b8dcb5094cccdcf"
-export TEST_RUN="True"
+    ```Bash
+    export PREDICTIONS_STREAM_NAME="ride_predictions"
+    export RUN_ID="3fc5b94495d54d978b8dcb5094cccdcf"
+    export TEST_RUN="True"
 
-python test.py
-```
+    python test.py
+    ```
 
 Check [test.py](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/04-deployment/streaming/test.py)
 
 The JSON data below is the data that I have put to the Lambda from a few previous command. You can get the record as the information like this from the `CloudWatch` UI.  I will use this information in the `test script`.
 
-```json
-{
-    "Records": [
-        {
-            "kinesis": {
-                "kinesisSchemaVersion": "1.0",
-                "partitionKey": "1",
-                "sequenceNumber": "49631818369979129679861815788598519962499637577139617794",
-                "data": "ewogICAgICAgICJyaWRlIjogewogICAgICAgICAgICAiUFVMb2NhdGlvbklEIjogOTAsCiAgICAgICAgICAgICJET0xvY2F0aW9uSUQiOiAyODUsCiAgICAgICAgICAgICJ0cmlwX2Rpc3RhbmNlIjogMy4yMgogICAgICAgIH0sCiAgICAgICAgInJpZGVfaWQiOiAxNDQKICAgIH0=",
-                "approximateArrivalTimestamp": 1659013681.735
-            },
-            "eventSource": "aws:kinesis",
-            "eventVersion": "1.0",
-            "eventID": "shardId-000000000000:49631818369979129679861815788598519962499637577139617794",
-            "eventName": "aws:kinesis:record",
-            "invokeIdentityArn": "arn:aws:iam::551011018709:role/lambda-kinesis-role",
-            "awsRegion": "us-west-1",
-            "eventSourceARN": "arn:aws:kinesis:us-west-1:551011018709:stream/ride_events"
-        }
-    ]
-}
-```
+    ```json
+    {
+        "Records": [
+            {
+                "kinesis": {
+                    "kinesisSchemaVersion": "1.0",
+                    "partitionKey": "1",
+                    "sequenceNumber": "49631818369979129679861815788598519962499637577139617794",
+                    "data": "ewogICAgICAgICJyaWRlIjogewogICAgICAgICAgICAiUFVMb2NhdGlvbklEIjogOTAsCiAgICAgICAgICAgICJET0xvY2F0aW9uSUQiOiAyODUsCiAgICAgICAgICAgICJ0cmlwX2Rpc3RhbmNlIjogMy4yMgogICAgICAgIH0sCiAgICAgICAgInJpZGVfaWQiOiAxNDQKICAgIH0=",
+                    "approximateArrivalTimestamp": 1659013681.735
+                },
+                "eventSource": "aws:kinesis",
+                "eventVersion": "1.0",
+                "eventID": "shardId-000000000000:49631818369979129679861815788598519962499637577139617794",
+                "eventName": "aws:kinesis:record",
+                "invokeIdentityArn": "arn:aws:iam::551011018709:role/lambda-kinesis-role",
+                "awsRegion": "us-west-1",
+                "eventSourceARN": "arn:aws:kinesis:us-west-1:551011018709:stream/ride_events"
+            }
+        ]
+    }
+    ```
 
 ![cloudwatch](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/04-deployment/streaming/images/cloudwatch.png)
 
