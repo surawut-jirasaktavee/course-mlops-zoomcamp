@@ -418,3 +418,7 @@ To test the ECR I have use the `test_docker.py` to test it. The script are the s
 
 * [URL for testing:](http://localhost:8080/2015-03-31/functions/function/invocations)
 * [Reference:](https://docs.aws.amazon.com/lambda/latest/dg/images-test.html)
+
+**TSET RESULT**
+
+![test_result](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/04-deployment/streaming/images/test_results.png)
