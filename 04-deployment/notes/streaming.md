@@ -337,15 +337,16 @@ I have to use this number in the next step.
 #### Reading data from the stream
 
 To read the data from the stream locally run to command:
-    - Define the name of the `KINESIS_STREAM_OUTPUT`.
-    - Define the SHARD with the `shard_id` from the previous command.
-    - Define the shard-terator-type with the `sequenceNumber` from the previous command.
-    - Define the query type.
-    - Define the `starting-sequence-number` to start to run the command with the number that you got from previous command.
-    - Store the command to **SHARD_ITERATOR** variable.
-    - Run the `get-records` command of the Kinesis and store the result to the variable.
-    - Print the result to reading data from the stream.
-    - This is the data from the previos command that send to the **Lambda function**.
+
+* Define the name of the `KINESIS_STREAM_OUTPUT`.
+* Define the SHARD with the `shard_id` from the previous command.
+* Define the shard*terator*type with the `sequenceNumber` from the previous command.
+* Define the query type.
+* Define the `starting*sequence*number` to start to run the command with the number that you got from previous command.
+* Store the command to **SHARD_ITERATOR** variable.
+* Run the `get*records` command of the Kinesis and store the result to the variable.
+* Print the result to reading data from the stream.
+* This is the data from the previos command that send to the **Lambda function**.
 
 ```bash
 KINESIS_STREAM_OUTPUT='ride_events'
