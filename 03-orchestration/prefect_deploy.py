@@ -1,32 +1,35 @@
 import pandas as pd
 import pickle
 
+import os
+import time
+
+from datetime import timedelta
+
+from pathlib import Path
+
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.metrics import mean_squared_error
 
 import xgboost as xgb
-
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
 from hyperopt.pyll import scope
 
 import mlflow
 
-from pathlib import Path
-
-from prefect.deployments import FlowScript
-from prefect.deployments import Deployment
 from prefect import flow, task
-from prefect.task_runners import SequentialTaskRunner
-from prefect.filesystems import RemoteFileSystem
-from prefect.logging import get_run_logger
-from prefect.packaging import FilePackager
-from prefect.orion.schemas.schedules import IntervalSchedule
-from prefect.flow_runners import SubprocessFlowRunner
-from datetime import timedelta
+from prefect.filesystems import S3
 
-from mlflow.entities import ViewType
-from mlflow.tracking import MlflowClient 
+from prefect.task_runners import SequentialTaskRunner
+from prefect.orion.schemas.schedules import IntervalSchedule
+
+bucket_name = "mlflow-artifacts-prem"
+os.environ["AWS_PROFILE"] = "MLOps-dev"
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+global MLFLOW_TRACKING_URI
+MLFLOW_TRACKING_URI = "ec2-3-101-74-249.us-west-1.compute.amazonaws.com"
 
 @task
 def read_dataframe(filename):
@@ -111,22 +114,15 @@ def train_model_search(train, valid, y_val):
     )
     return
 
+
 @task
-def param(id=1):
-    
-    mlflow_tracking_uri = 'sqlite:///mlflow.db'
-    client = MlflowClient(tracking_uri=mlflow_tracking_uri)
-    experiments = client.list_experiments()
-    exp_ids = list(experiments[id].experiment_id)[-1]
-    
-    run = client().search_runs(
-                experiment_ids=exp_ids,
-                filter_string="",
-                run_view_type=ViewType.ACTIVE_ONLY,
-                max_results=10,
-                order_by=None  
-    )
-    
+def param(MLFLOW_TRACKING_URI, exp_num: int=1):
+ 
+    from search_run import mlflow_client
+
+    client = mlflow_client(mlflow_tracking_uri=MLFLOW_TRACKING_URI , exp_num_ID=exp_num)
+    run = client.runs()
+
     learning_rate = run.data.params['learning_rate']
     max_depth = run.data.params['max_depth']
     min_child_weight = run.data.params['min_child_weight']
@@ -163,53 +159,52 @@ def train_best_model(train, valid, y_val, dv, learning_rate, max_depth, min_chil
 
         y_pred = booster.predict(valid)
         rmse = mean_squared_error(y_val, y_pred, squared=False)
-        mlflow.log_metric("rmse", rmse)
         
-        artifact_path = Path('./models/')
-        artifact_path.mkdir(parents=True, exist_ok=True)
+        mlflow.log_metric("rmse", rmse)
+        mlflow.xgboost.log_model(booster, artifact_path="model")
 
-        with open(f"{artifact_path}/preprocessor.b", "wb") as f_out:
-            pickle.dump(dv, f_out)
-        mlflow.log_artifact(f"{artifact_path}/preprocessor.b", artifact_path="preprocessor")
+def get_storage(s3_bucket: str, 
+                AWS_ACCESS_KEY_ID: str,
+                AWS_SECRET_ACCESS_KEY: str):
 
-        mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
+    block = S3(bucket_path=s3_bucket, 
+            aws_access_key_id=AWS_ACCESS_KEY_ID, 
+            aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+    block.load(bucket_name)
 
-@flow(task_runner=SequentialTaskRunner())
+@flow(name="xgboost_optimization",
+    version="v1",
+    task_runner=SequentialTaskRunner(),
+    retries=3)
 def main(train_path: str="./data/green_tripdata_2021-01.parquet",
         val_path: str="./data/green_tripdata_2021-02.parquet"):
-    
-    from search_run import mlflow_client
-    
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
-    mlflow.set_experiment("nyc-taxi-experiment")
+
+    mlflow.set_tracking_uri(f"http://{MLFLOW_TRACKING_URI}:5000")    
+    mlflow.set_experiment("taxi_trip_prediction-experiment")
+
+    get_storage(bucket_name, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+   
     X_train = read_dataframe(train_path)
     X_val = read_dataframe(val_path)
-    X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val).result()
+    X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val) # .result()
     train = xgb.DMatrix(X_train, label=y_train)
     valid = xgb.DMatrix(X_val, label=y_val)
     train_model_search(train, valid, y_val)
-    learning_rate, max_depth, min_child_weight, objective, reg_alpha, reg_lambda, seed = param()
+    learning_rate, max_depth, min_child_weight, objective, reg_alpha, reg_lambda, seed = param(MLFLOW_TRACKING_URI, 1)
     train_best_model(train, valid, y_val, dv, learning_rate, max_depth, min_child_weight, objective, reg_alpha, reg_lambda, seed)
 
-aws_s3_file_packager = FilePackager(filesystem=RemoteFileSystem(
-    basepath="s3://prefect-artifacts-prem/artifacts/",
-    settings={
-        "key": "",
-        "secret": ""
-    }
-))
+# prefect storage settings
+# https://orion-docs.prefect.io/concepts/storage/
 
-Deployment(
-    flow=FlowScript(path="./prefect_deploy.py", name="main"),
-    name="model_training",
-    schedule=IntervalSchedule(interval=timedelta(minutes=5)),
-    flow_runner=SubprocessFlowRunner(),
-    packager=aws_s3_file_packager,
-    tags=["test module3"]
-)
+# main()
 
-# if __name__ == "main":
-#     main()
+# PREFECT_API_URL="http://3.101.74.249:4200/api
 
+'''
+prefect deployment build ./prefect_deploy.py:main \
+--name xgboost_optimization \
+--tag dev \
+--infra process \
+--storage-block s3/mlflow-artifacts-prem
+'''
 
-# PREFECT_API_URL="http://13.52.76.201:4200/api"

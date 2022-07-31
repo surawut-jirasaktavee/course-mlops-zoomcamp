@@ -1,5 +1,6 @@
 import pandas as pd
 import pickle
+import os
 
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression, Lasso, Ridge
@@ -18,6 +19,10 @@ from prefect import flow, task
 from prefect.task_runners import SequentialTaskRunner
 
 from search_run import mlflow_client
+
+
+os.environ["AWS_PROFILE"] = "MLOps-dev"
+TRACKING_URI = "ec2-54-193-87-108.us-west-1.compute.amazonaws.com"
 
 @task
 def read_dataframe(filename):
@@ -143,22 +148,15 @@ def train_best_model(train, valid, y_val, dv, learning_rate, max_depth, min_chil
 
         y_pred = booster.predict(valid)
         rmse = mean_squared_error(y_val, y_pred, squared=False)
+        
         mlflow.log_metric("rmse", rmse)
-
-        artifact_path = Path('./models/')
-        artifact_path.mkdir(parents=True, exist_ok=True)
-
-        with open(f"{artifact_path}/preprocessor.b", "wb") as f_out:
-            pickle.dump(dv, f_out)
-        mlflow.log_artifact(f"{artifact_path}/preprocessor.b", artifact_path="preprocessor")
-
-        mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
+        mlflow.xgboost.log_model(booster, artifact_path="model")
 
 @flow(task_runner=SequentialTaskRunner())
 def main(train_path: str="./data/green_tripdata_2021-01.parquet",
         val_path: str="./data/green_tripdata_2021-02.parquet"):
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
-    mlflow.set_experiment("nyc-taxi-experiment")
+    mlflow.set_tracking_uri(f"http://{TRACKING_URI}:5000")
+    mlflow.set_experiment("taxi_trip_prediction-experiment")
     X_train = read_dataframe(train_path)
     X_val = read_dataframe(val_path)
     X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val).result()

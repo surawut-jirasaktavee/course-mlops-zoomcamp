@@ -1,0 +1,22 @@
+{
+    "flow_name": "xgboost_optimization",
+    "import_path": "./prefect_deploy.py:main",
+    "parameter_openapi_schema": {
+        "title": "Parameters",
+        "type": "object",
+        "properties": {
+            "train_path": {
+                "title": "train_path",
+                "default": "./data/green_tripdata_2021-01.parquet",
+                "type": "string"
+            },
+            "val_path": {
+                "title": "val_path",
+                "default": "./data/green_tripdata_2021-02.parquet",
+                "type": "string"
+            }
+        },
+        "required": null,
+        "definitions": null
+    }
+}
