@@ -29,7 +29,7 @@ os.environ["AWS_PROFILE"] = "MLOps-dev"
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 global MLFLOW_TRACKING_URI
-MLFLOW_TRACKING_URI = "ec2-3-101-74-249.us-west-1.compute.amazonaws.com"
+MLFLOW_TRACKING_URI = "ec2-54-151-26-28.us-west-1.compute.amazonaws.com"
 
 @task
 def read_dataframe(filename):
@@ -170,8 +170,8 @@ def get_storage(s3_bucket: str,
     block = S3(bucket_path=s3_bucket, 
             aws_access_key_id=AWS_ACCESS_KEY_ID, 
             aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
-    block.load(bucket_name)
-
+    return block
+    
 @flow(name="xgboost_optimization",
     version="v1",
     task_runner=SequentialTaskRunner(),
@@ -182,7 +182,7 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
     mlflow.set_tracking_uri(f"http://{MLFLOW_TRACKING_URI}:5000")    
     mlflow.set_experiment("taxi_trip_prediction-experiment")
 
-    get_storage(bucket_name, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+    block = get_storage(bucket_name, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
    
     X_train = read_dataframe(train_path)
     X_val = read_dataframe(val_path)
@@ -198,7 +198,6 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
 
 # main()
 
-# PREFECT_API_URL="http://3.101.74.249:4200/api
 
 '''
 prefect deployment build ./prefect_deploy.py:main \
