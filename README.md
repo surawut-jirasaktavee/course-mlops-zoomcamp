@@ -17,7 +17,7 @@ Free MLOps course from DataTalks.Club
 |05  | Model monitoring                    | 01/08/2022 |       -    | -  | [Module5](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/05-model-monitoring)|
 |06  | Best practices                      | - |              | -  | [Module6](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/06-best-practices)|
 |07  | Processes                           | - |              | -  | [Module7](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/07-processes)|
-|08  | Project capstone                    | 12/08/2022 |              | 12/09/2022  | [Module8](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/08-project-capstone)|
+|08  | Project capstone                    | 12/08/2022 | 11/09/2022 | 12/09/2022  | [Module8](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/tree/main/08-project-capstone)|
 
 ---
 
