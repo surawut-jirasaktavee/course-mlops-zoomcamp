@@ -1,0 +1,33 @@
+datasets:
+  customer_churn:
+    column_mapping:
+      categorical_features:
+        - 'International plan'
+        - 'Voice mail plan'
+      numerical_features:
+        - 'Account length'
+        - 'Number vmail messages'
+        - 'Total day minutes'
+        - 'Total day calls'
+        - 'Total eve minutes'
+        - 'Total eve calls'
+        - 'Total night minutes'
+        - 'Total night calls'
+        - 'Total intl minutes'
+        - 'Total intl calls'
+        - 'Customer service calls'
+    data_format:
+      header: true
+      separator: ','
+    monitors:
+      - data_drift
+      - classification_performance
+      - cat_target_drift
+    reference_file: ./datasets/churn_test_dataset.csv
+service:
+  calculation_period_sec: 2
+  min_reference_size: 30
+  moving_reference: false
+  datasets_path: datasets
+  use_reference: true
+  window_size: 5

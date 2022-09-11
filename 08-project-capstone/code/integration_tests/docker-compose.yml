@@ -1,0 +1,8 @@
+version : '3.7'
+services:
+  test-model:
+    build: 
+      context: ../churn_prediction_service
+      dockerfile: /home/ubuntu/course-mlops-zoomcamp/08-project-capstone/code/integration_tests/Dockerfile
+    ports:
+      - "9696:9696"
