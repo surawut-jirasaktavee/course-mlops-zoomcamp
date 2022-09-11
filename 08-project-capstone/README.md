@@ -24,7 +24,7 @@ The project's focus to make a **Production service** with experiment tracking us
 
 The dataset has been taken from [Kaggle](https://www.kaggle.com/competitions/customer-churn-prediction-2020/overview). 
 
-See data dictionary: [Data_Dictionary](https://github.com/DataTalksClub/mlops-zoomcamp/08-project-capstone/dataset/churn_data_dictionary.md)
+See data dictionary: [Data_Dictionary](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/dataset/README.md)
 
 
 ## Project preparations
