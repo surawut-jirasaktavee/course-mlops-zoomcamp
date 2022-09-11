@@ -72,7 +72,9 @@ The demo below will simulate the traffic of the model service in real-time predi
 This demo shows the main functionality of the project and will follow by the project instructions below.
 
 <a href="https://www.youtube.com/watch?v=5kNUc1ebU28">
-
+<img src="[images/thumbnail-2-02.jpg](https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/data_drift_report.png)">
+</a>
+  
 ## Project instruction
 
 ### 1. Project repository
