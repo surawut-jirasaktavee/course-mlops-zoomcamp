@@ -146,6 +146,19 @@ The command above will set the `PREFECT API URL` at localhost with port 4200 and
 prefect config set PREFECT_ORION_UI_API_URL="http://<external ip>:4200/api" # Remote server
 ```
 
+**Prefect flow**
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_flow_run.png">
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_flow.png">
+
+**Prefect deployment**
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_deployment.png">
+
+**Prefect workqueue**
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_workqueue.png">
+
+**Prefect storage**
+<img src"https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capastone/images/prefect_storage.png">
+
 ### 7. MLflow Model training and monitoring
 
 ```bash
