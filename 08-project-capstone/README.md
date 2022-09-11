@@ -124,6 +124,8 @@ This command will build the mlflow service to work in this project e.g. `databas
 
 **link**: http://localhost:5050/
 
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/mlflow_tracking.png">
+
 ### 6. Prefect preparation
 
 ```bash
