@@ -54,7 +54,7 @@ This project repository contains 2 folders.
 
 ## Project overview
 
-The project start by training session to train the model with "`model_training.py`" and promoting the model to the model registry with "`model_registry.py`" and store the model artifacts and saving the model with "`pickle`" file. **MLflow** being used for model experiment tracking, registry, store artifacts by save to the "`customer_chrun.db`" 
+The project start by training session to train the model with "`model_training.py`" and promoting the model to the model registry with "`model_registry.py`" and store the model artifacts and saving the model with "`pickle`" file. **MLflow** being used for model experiment tracking, model registry, store the model artifacts by save to the "`customer_chrun.db`" 
 
 In order to make the machine learning pipeline then **Prefect** come to work on the project. Prefect has been used as a workflow orchestrator in the project by deploy the project create the `task` and `flow` then schedule the pipeline to run every time.
 
