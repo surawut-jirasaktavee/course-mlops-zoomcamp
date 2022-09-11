@@ -2,7 +2,7 @@
 
 ## Project name
 
-Telecom customer churn prediction
+**Telecom customer churn prediction**
 
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/Customer_churn_prediction.drawio.png">
 
