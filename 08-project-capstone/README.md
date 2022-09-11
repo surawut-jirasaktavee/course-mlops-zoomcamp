@@ -256,7 +256,7 @@ This project still need more improvement to give more abilities for work with.
 
 2. When the alert occurs send some triggers. For example when the model performance is down show the alert to the operation team and send the trigger to the prefect to start the model deployment to re-train the model to get better model.
 
-3. Combine both two above with CI/CD process this will become to CI/CD/CT pipeline and deploy to the production automatically.
+3. Combine both two above with CI/CD process. This will become to CI/CD/CT pipeline and deploy to the production automatically.
 
 4. Add others model to training session and select the best model for the project.
 
