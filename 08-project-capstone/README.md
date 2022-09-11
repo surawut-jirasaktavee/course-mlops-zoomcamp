@@ -4,6 +4,8 @@
 
 Telecom customer churn prediction
 
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/Customer_churn_prediction.drawio.png">
+
 ## Project evaluation criteria:
 https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/07-project
 
