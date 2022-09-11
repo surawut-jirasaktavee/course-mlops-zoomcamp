@@ -37,7 +37,9 @@ AMI name: ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220609
 
 Reproducibility are based on specific configuration above and already proved with `Mac M1 Air`
 
-This project repository contains 2 folders.
+## Project structure
+
+This project repository contains 2 folders and a README.md
 
 1. dataset folder contains train and test datasets.
 2. code folder contains the main source code with configurations file includes.
