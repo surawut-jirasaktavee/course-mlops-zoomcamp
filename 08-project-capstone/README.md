@@ -71,8 +71,7 @@ The demo below will simulate the traffic of the model service in real-time predi
 
 This demo shows the main functionality of the project and will follow by the project instructions below.
 
-
-![]()
+<a href="https://www.youtube.com/watch?v=5kNUc1ebU28">
 
 ## Project instruction
 
