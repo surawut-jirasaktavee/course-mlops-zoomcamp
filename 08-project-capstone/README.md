@@ -16,11 +16,11 @@ This is the final project for the course `mlops-zoomcamp` from [DataTalksClub](h
 **Project pain point**:
 Churn prediction means detecting which customers are likely to leave or cancel a service subscription. It is a critical prediction for many businesses because acquiring new clients often costs more than retaining existing ones
 
-Since I am the Data Engineer in the Telecommunication industry and I have some interested about the Data Science. I have decided to combine my interesting and my current industry and do some project with the course `mlops-zoomcamp` for the final project.
+Since I am a Data Engineer in the Telecommunication industry, I have been interested in Data Science. I have decided to combine my interests and my current industry and do some projects with the course mlops-zoomcamp for the final project.
 
-The project provides the online service for the prediction of customer who will has the possibility to **Churn** from the company. 
+The project provides an online service for predicting customers who will have the possibility to **Churn** from the company.
 
-The project's focus to make a **Production service** with experiment tracking using **MLflow**, pipeline automation using **Prefect**, observabilitty using **Evidently**, **Prometheus**, and **Grafana**.
+The project's focus is to make a Production service with experiment tracking using **MLflow**, pipeline automation using **Prefect**, and observability using **Evidently**, **Prometheus**, and **Grafana**.
 
 ## Dataset
 
@@ -58,15 +58,15 @@ This project repository contains 2 folders and a README.md
 
 ## Project overview
 
-The project start by training session to train the model with "`model_training.py`" and promoting the model to the model registry with "`model_registry.py`" and store the model artifacts and saving the model with "`pickle`" file. **MLflow** being used for model experiment tracking, model registry, store the model artifacts by save to the "`customer_chrun.db`" 
+The project started by the training session to train the model with "`model_training.py`" and promote the model to the model registry with "`model_registry.py`" and store the model artifacts and save the model with "`pickle`" file. **MLflow** being used for model experiment tracking, model registry, store the model artifacts by saving to the "`customer_chrun.db`" 
 
-In order to make the machine learning pipeline then **Prefect** come to work on the project. Prefect has been used as a workflow orchestrator in the project by deploy the project create the `task` and `flow` then schedule the pipeline to run every time.
+In order to make the machine learning pipeline then **Prefect** come to work on the project. The Prefect has been used as a workflow orchestrator in the project by deploying the project creating the `task` and `flow` and then scheduling the pipeline to run at the time the pipeline should schedule.
 
-Now after the model training session and deployment process. The project still not ready and need more task to work. This time the model should be use and serving the expect performance from the model as application that will use by the users this application will implement using **Flask**. 
+Now after the model training session and deployment process. The project is still not ready and needs more improvement work. This time the model should be used and serve the expected performance from the model as the application that will use by the users this application will implement using **Flask**. 
 
-Apart from this the observability for the service is the task being implement to ensures the opearation team can observability by a combination of **Grafana**, **Prometheus**, and **Evidently** with these services will provide real-time of model performance and data drift from the production. So the operation can handle the problems immediately or requests others team to help and discuss to make the decission together by time.
+Apart from this the observability for the service is the task being implemented to ensure the operations team can observability by a combination of **Grafana**, **Prometheus**, and **Evidently** these services will provide real-time model performance and data drift from the production. So the operation can handle the problems immediately or requests other teams to help and discuss to make the decision together.
 
-The demo below will simulate the traffic of the model service in real-time prediction pipeline by the `customer_data.py` script. It will send the input features from the [dataset](https://github.com/DataTalksClub/mlops-zoomcamp/08-project-capstone/dataset/churn_test_dataset.csv) in every a few seconds and send the response back to the **Data Mart** (Assumed) in the "`./code/churn_report/customer_churn_result.csv`" with **customer ID** and **Churn result**.
+Apart from this, the observability for the service is the task being implemented to ensure the operations team can observability by a combination of **Grafana**, **Prometheus**, and **Evidently**. These services will provide real-time model performance and data drift from production. So the operation can handle the problems immediately or requests other teams to help and discuss to make the decision together.
 
 
 ## Demo
