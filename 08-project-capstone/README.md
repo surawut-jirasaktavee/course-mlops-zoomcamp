@@ -39,8 +39,16 @@ Reproducibility are based on specific configuration above and already proved wit
 
 This project repository contains 2 folders.
 
-1. dataset contains train and test datasets
-2. code contains the main source code with configurations file includes `Dockerfile`, `docker-compose.yml`, `MLflow database`, `Prefect database`, `Services`, `CI/CD pipeline`, and `integration test`
+1. dataset folder contains train and test datasets.
+2. code folder contains the main source code with configurations file includes.
+
+  - Dockerfile
+  - docker-compose.yml
+  - MLflow database
+  - Prefect database
+  - Prediction services
+  - CI/CD pipeline
+  - Integration test
 
 
 
