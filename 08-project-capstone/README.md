@@ -124,8 +124,13 @@ This command will build the mlflow service to work in this project e.g. `databas
 
 **link**: http://localhost:5050/
 
+**MLflow tracking**
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/mlflow_tracking.png">
+
+**MLflow registry**
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/mlflow_registry.png">
+
+**MLflow artifactts**
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/mlflow_artifacts.png">
 
 
@@ -157,7 +162,7 @@ prefect config set PREFECT_ORION_UI_API_URL="http://<external ip>:4200/api" # Re
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_workqueue.png">
 
 **Prefect storage**
-<img src"https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capastone/images/prefect_storage.png">
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capastone/images/prefect_storage.png">
 
 ### 7. MLflow Model training and monitoring
 
