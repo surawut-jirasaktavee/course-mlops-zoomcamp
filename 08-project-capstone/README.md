@@ -230,15 +230,19 @@ In the current directory `(./course-mlops-zoomcamp/08-project-capstone/code)` ru
 python customer_data.py
 ```
 
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/model_prediction.png">
+
 this command will read the data from `./evidently_service/datasets/churn_test_dataset.csv` and send it to the `Flask` application. And the model service will send the outputs the prediction as **Churn** or **Not Churn** and write the `customer ID` and `churn result` to `./churn_report` to serve this result to the analyst team to work on this result and find the good solutions.
 
 ### 13. Model & Data monitoring
 
 In order to inspect the `data drift` or `model drift` see the **Grafana dashboard** to monitor then check if any data show abnormal or model performance become to bad.
 
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/data_drift_report.png">
+
 ### 14. Service port
 
-**All service port**
+**All services port**
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/service_port.png">
 
 
