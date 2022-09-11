@@ -162,7 +162,7 @@ prefect config set PREFECT_ORION_UI_API_URL="http://<external ip>:4200/api" # Re
 <img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_workqueue.png">
 
 **Prefect storage**
-<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capastone/images/prefect_storage.png">
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/prefect_storage.png">
 
 ### 7. MLflow Model training and monitoring
 
@@ -235,6 +235,11 @@ this command will read the data from `./evidently_service/datasets/churn_test_da
 ### 13. Model & Data monitoring
 
 In order to inspect the `data drift` or `model drift` see the **Grafana dashboard** to monitor then check if any data show abnormal or model performance become to bad.
+
+### 14. Service port
+
+**All service port**
+<img src="https://github.com/surawut-jirasaktavee/course-mlops-zoomcamp/blob/main/08-project-capstone/images/service_port.png">
 
 
 ## Future improvement
