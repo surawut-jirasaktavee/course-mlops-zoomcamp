@@ -222,6 +222,8 @@ In order to see the work-queue ID run the command:
 prefect work-queue ls
 ```
 
+**NOTE**: For the agent start API. It has sometimes the API gets stuck with no reason for me. So if get stuck with this part just wait and skip to the next step first. Then if finish all processes and back to the agent and the agent is still stuck trying to use the UI instead. The agent should be run normally.
+
 ### 12. Model prediction
 
 Now the model ready to use after training and deploy to the production and the services should be ready to serve the prediction result of each customer who will **Churn** or **Not Churn** from our company.
